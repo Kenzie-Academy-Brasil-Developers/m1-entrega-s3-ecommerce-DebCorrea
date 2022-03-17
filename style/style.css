@@ -54,6 +54,10 @@ nav {
     margin-right: 20px;
 }
 
+.filters:hover {
+    border-bottom: 2px solid #6B54DE;
+}
+
 .selected {
     color: #333333;
 
