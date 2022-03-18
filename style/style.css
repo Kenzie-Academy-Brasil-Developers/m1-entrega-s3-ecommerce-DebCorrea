@@ -21,7 +21,7 @@ header {
     align-items: center;
 }
 
-.containerHeader {
+#containerHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,7 +50,11 @@ nav {
     background-color: inherit;
     color: #828282;
 
-    border: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #F5F5F5;
+
     margin-right: 20px;
 }
 
@@ -72,7 +76,7 @@ main {
     margin: 0px 5%;
 }
 
-.containerMainContent {
+#containerMainContent {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
