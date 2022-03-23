@@ -275,6 +275,8 @@ input {
 
 #filledCart{
     height: fit-content;
+
+    overflow-y: scroll;
 }
 
 .productInCart {
