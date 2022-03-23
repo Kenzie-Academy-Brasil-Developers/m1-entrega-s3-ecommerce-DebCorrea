@@ -394,7 +394,7 @@ function addToCart(e) {
         btnsRemove[i].addEventListener('click', removeFromCart);
 
     }
-
+    
 }
 
 
@@ -431,6 +431,8 @@ function removeFromCart(e) {
         cartBody.innerHTML = `<h3>Carrinho vazio</h3>
 
         <span>Adicione itens</span>`;
+
+        cart.childNodes[5].remove();
 
         productQnt = 0;
 
