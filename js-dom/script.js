@@ -319,7 +319,7 @@ function addToCart(e) {
 
                 <h3 class="productNameInCart">${productsDataBase[item].productName}</h3>
 
-                <h4>R$ ${productsDataBase[item].price}</h4>
+                <h4 class="productPriceInCart" id=${item}>R$ ${productsDataBase[item].price}</h4>
 
                 <button class="rmvProduct">Remover produto</button>
 
@@ -361,7 +361,7 @@ function addToCart(e) {
 
                 <h3 class="productNameInCart">${productsDataBase[item].productName}</h3>
 
-                <h4>R$ ${productsDataBase[item].price}</h4>
+                <h4 class="productPriceInCart" id=${item}>R$ ${productsDataBase[item].price}</h4>
 
                 <button class="rmvProduct">Remover produto</button>
 
@@ -387,41 +387,7 @@ function addToCart(e) {
 
     for (let i = 0; i < productsInCart.length; i++) {
 
-        btnsRemove[i].addEventListener('click', function removeFromCart() {
-
-            productsInCart[i].remove();
-
-            if (productsInCart.length < 1) {
-
-                cartBody.removeAttribute('id');
-
-                cartBody.id = 'emptyCart';
-
-                cartBody.innerHTML = `<h3>Carrinho vazio</h3>
-
-                <span>Adicione itens</span>`;
-
-                productQnt = 0;
-
-                totalValue = 0;
-
-            } else {
-
-                const divTotalQnt = document.getElementById('qntTotal');
-    
-                const divTotalValue = document.getElementById('totalValue');
-
-                divTotalQnt.innerHTML = `<h4 class="whiteLettersCart">Quantidade:</h4>
-
-                <h4 class="grayLettersCart">${productQnt -= 1}</h4>`;
-
-                divTotalValue.innerHTML = `<h4 class="whiteLettersCart">Total:</h4>
-
-                <h4 class="grayLettersCart">R$ ${totalValue}</h4>`;
-
-            }
-
-        });
+        btnsRemove[i].addEventListener('click', removeFromCart);
 
     }
 
@@ -433,5 +399,49 @@ for (let i = 0; i < productsDataBase.length; i++) {
     const btnAdd = document.getElementById(i);
 
     btnAdd.addEventListener('click', addToCart);
+
+}
+
+
+
+function removeFromCart(e) {
+
+    const divTotalQnt = document.getElementById('qntTotal');
+
+    const divTotalValue = document.getElementById('totalValue');
+
+    const divDetailsProductCart = e.target.parentNode;
+
+    const priceId = divDetailsProductCart.childNodes[3].id;
+    
+    e.target.parentNode.parentNode.remove();
+
+    if (productsInCart.length < 1) {
+
+        cartBody.removeAttribute('id');
+
+        cartBody.id = 'emptyCart';
+
+        cartBody.innerHTML = '';
+
+        cartBody.innerHTML = `<h3>Carrinho vazio</h3>
+
+        <span>Adicione itens</span>`;
+
+        productQnt = 0;
+
+        totalValue = 0;
+
+    } else {
+
+        divTotalQnt.innerHTML = `<h4 class="whiteLettersCart">Quantidade:</h4>
+
+        <h4 class="grayLettersCart">${productQnt -=1}</h4>`;
+
+        divTotalValue.innerHTML = `<h4 class="whiteLettersCart">Total:</h4>
+
+        <h4 class="grayLettersCart">R$ ${totalValue -= productsDataBase[priceId].price}</h4>`;
+
+    }
 
 }
