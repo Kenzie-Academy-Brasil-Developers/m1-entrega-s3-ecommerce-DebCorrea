@@ -432,11 +432,11 @@ function removeFromCart(e) {
 
         <span>Adicione itens</span>`;
 
-        cart.childNodes[5].remove();
-
         productQnt = 0;
 
         totalValue = 0;
+
+        cart.childNodes[5].remove();
 
     } else {
 
