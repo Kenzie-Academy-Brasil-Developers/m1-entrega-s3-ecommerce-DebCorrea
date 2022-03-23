@@ -6,6 +6,8 @@ const searchInput = document.querySelector('input');
 
 const btnSearch = document.getElementById('search');
 
+const cart = document.getElementById('cart');
+
 const cartBody = document.getElementById('emptyCart');
 
 const productsInCart = document.getElementsByClassName('productInCart');
@@ -325,27 +327,29 @@ function addToCart(e) {
 
             </div>
 
-        </section>
+        </section>`
 
-        <div class="totalProductsCart">
+        const divTotalProductsCart = document.createElement('div');
 
-            <div id="qntTotal">
+        divTotalProductsCart.classList.add('totalProductsCart');
 
-                <h4 class="whiteLettersCart">Quantidade:</h4>
+        divTotalProductsCart.innerHTML = `<div id="qntTotal">
 
-                <h4 class="grayLettersCart">${productQnt}</h4>
+        <h4 class="whiteLettersCart">Quantidade:</h4>
 
-            </div>
+        <h4 class="grayLettersCart">${productQnt}</h4>
 
-            <div id="totalValue">
+        </div>
 
-                <h4 class="whiteLettersCart">Total:</h4>
+        <div id="totalValue">
 
-                <h4 class="grayLettersCart">R$ ${totalValue}</h4>
+            <h4 class="whiteLettersCart">Total:</h4>
 
-            </div>
+            <h4 class="grayLettersCart">R$ ${totalValue}</h4>
 
-        </div>`
+        </div>`;
+
+        cart.appendChild(divTotalProductsCart);
 
     } else {
 
