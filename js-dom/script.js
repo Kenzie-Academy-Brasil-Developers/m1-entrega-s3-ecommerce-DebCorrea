@@ -394,7 +394,7 @@ function addToCart(e) {
         btnsRemove[i].addEventListener('click', removeFromCart);
 
     }
-
+    
 }
 
 
@@ -435,6 +435,8 @@ function removeFromCart(e) {
         productQnt = 0;
 
         totalValue = 0;
+
+        cart.childNodes[5].remove();
 
     } else {
 
